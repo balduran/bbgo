@@ -5,8 +5,11 @@ go:
 - 1.15
 services:
 - redis-server
+
+install:
+- env GO111MODULE=off go get github.com/c9s/rockhopper
+
 before_script:
-- go get github.com/c9s/rockhopper
 - go mod download
 script:
 - bash scripts/test-sqlite3-migrations.sh
